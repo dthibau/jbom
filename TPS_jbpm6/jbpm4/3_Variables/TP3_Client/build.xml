@@ -1,0 +1,30 @@
+<project name="jboss-dukes-bank" default="deploy" basedir=".">
+	<property file="./build.properties"/>
+
+	<!-- =================================================================== -->
+	<!-- ReInitialises the a working directory.                                              -->
+	<!-- =================================================================== 
+	<target name="prepare">
+		<echo message="cleaning the working directory"/>
+		<delete dir="${work.dir}"/>
+		<mkdir dir="${work.dir}"/>
+		<copy todir="$workdir" >
+			<fileset dir="build"></fileset>
+		</copy>
+	</target> -->
+	<!-- ================================================================ -->
+	<!-- Pack the web archive                                         -->
+	<!-- ================================================================ -->
+	<target name="package-war">
+		<echo message="Packaging the war file"/>
+		<war basedir="${work.dir}" destfile="${warName}.war" webxml="${work.dir}/WEB-INF/web.xml"/>
+	</target>
+	<!-- Deploys the war file by copying it to the JBoss deploy directory.  -->
+	<target name="deploy">
+		<copy todir="${jboss.deploy.dir}/${warName}.war">
+			<fileset dir="${work.dir}">
+				<include name="**/*.*"/>
+			</fileset>
+		</copy>
+	</target>
+</project>

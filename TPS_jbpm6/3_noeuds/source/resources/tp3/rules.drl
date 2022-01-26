@@ -1,0 +1,11 @@
+package org.formation.tp3.model
+
+import org.drools.runtime.process.ProcessContext
+
+rule "Start main" ruleflow-group "tp3"
+  when
+  	Demande()
+  then
+    System.out.println("Signal process");
+    drools.getContext(ProcessContext.class).getProcessInstance().signalEvent("Start", $demande);
+end
