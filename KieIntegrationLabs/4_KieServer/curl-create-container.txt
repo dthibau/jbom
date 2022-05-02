@@ -1,0 +1,1 @@
+curl -X PUT "http://localhost:8080/kie-server/services/rest/server/containers/credit" -H "accept: application/json" -H "content-type: application/json" -d "{ \"container-id\" : \"credit\", \"release-id\" : { \"group-id\" : \"org.formation\", \"artifact-id\" : \"Lab3\", \"version\" : \"1.0.0-SNAPSHOT\" }}"

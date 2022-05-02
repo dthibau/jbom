@@ -1,0 +1,30 @@
+{
+  "commands": [ {
+      "insert": {
+        "entry-point": "",
+        "object": {
+          "org.formation.stateless.model.Conducteur": {
+            "age": 25,
+            "anciennete": 0,
+            "incidents": 0
+          }
+        },
+        "out-identifier": "conducteur",
+        "return-object": false
+      }
+    },
+    {
+      "insert": {
+        "entry-point": "",
+        "object": {
+          "org.formation.stateless.model.Assurance": {
+            "prixBase": -1,
+            "remise": 0
+          }
+        },
+        "out-identifier": "assurance",
+        "return-object": true
+      }
+    }
+  ]
+}
