@@ -1,0 +1,33 @@
+version: '3'
+services:
+  quarkus-postgresql:
+    image: postgres:14.1
+    volumes:
+      - quarkus_db:/var/lib/postgresql
+      - quarkus_data:/var/lib/postgresql/data
+    networks:
+      - back
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5432:5432
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "81:80"
+    depends_on:
+      - quarkus-postgresql
+    networks:
+      - back
+volumes:
+  quarkus_data:
+  quarkus_db:
+
+networks:
+  back:
+
